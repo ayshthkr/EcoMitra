@@ -1,4 +1,4 @@
-# Financial Management Struggles 💰🔍
+# EcoMitra- Ai powered fintech platform 
 
 ## Overview
 A web application designed to help individuals overcome financial literacy challenges and develop better money management habits.By providing enaging dashboard and summry of banking statements
