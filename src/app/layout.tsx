@@ -39,6 +39,7 @@ export default function RootLayout({
             enableSystem={false}
           >
             <NextTopLoader color="#2a9d90" height={6} />
+            
             {children}
             <Toaster richColors />
           </ThemeProvider>

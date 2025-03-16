@@ -9,6 +9,7 @@ import {
   PieChartIcon,
   Send,
   Signal,
+  Bot,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -46,6 +47,11 @@ const data = {
       title: "Investments",
       url: "/investments",
       icon: Signal,
+    },
+    {
+      title: "advisewithAI",
+      url: "/talk",
+      icon: Bot,
     },
   ],
   navSecondary: [
