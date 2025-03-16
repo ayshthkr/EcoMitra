@@ -7,15 +7,14 @@ import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { UserButton, useAuth, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { UserButton, useAuth, SignInButton, SignUpButton, ClerkLoading } from "@clerk/nextjs";
 import { createNewUser } from "@/actions/user/create-new-user";
+import { CircleIcon, LoaderIcon } from "lucide-react";
 
 export default function Header() {
   const [addBorder, setAddBorder] = useState(false);
   const { isSignedIn, isLoaded } = useAuth();
-  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +68,7 @@ export default function Header() {
                   >
                     Dashboard
                   </Link>
-                  <UserButton />
+                  <UserButton fallback={<LoaderIcon />} />
                 </>
               ) : (
                 <>

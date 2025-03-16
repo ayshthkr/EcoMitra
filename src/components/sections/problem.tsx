@@ -5,24 +5,25 @@ import { Brain, Shield, Zap } from "lucide-react";
 
 const problems = [
   {
-    title: "Data Overload",
+    title: "Information Overload",
     description:
-      "Businesses struggle to make sense of vast amounts of complex data, missing out on valuable insights that could drive growth and innovation.",
+      "Companies find it challenging to interpret massive volumes of complex data, leading to missed opportunities for growth and innovation.",
     icon: Brain,
   },
   {
-    title: "Slow Decision-Making",
+    title: "Delayed Decision-Making",
     description:
-      "Traditional data processing methods are too slow, causing businesses to lag behind market changes and miss crucial opportunities.",
+      "Conventional data processing techniques are inefficient, causing businesses to fall behind market trends and lose key opportunities.",
     icon: Zap,
   },
   {
-    title: "Data Security Concerns",
+    title: "Concerns Over Data Security",
     description:
-      "With increasing cyber threats, businesses worry about the safety of their sensitive information when adopting new technologies.",
+      "As cyber threats rise, organizations fear for the security of their sensitive data when integrating new technologies.",
     icon: Shield,
   },
 ];
+
 
 export default function Component() {
   return (

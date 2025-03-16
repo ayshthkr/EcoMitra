@@ -5,8 +5,11 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
 import NextTopLoader from 'nextjs-toploader'
+import {Inter } from "next/font/google";
 
 export const metadata: Metadata = constructMetadata({});
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
   colorScheme: "light",
@@ -24,12 +27,10 @@ export default function RootLayout({
   return (
     <ClerkProvider dynamic>
       <html lang="en" suppressHydrationWarning>
-        <head>
-          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-        </head>
         <body
           className={cn(
-            "min-h-screen bg-background antialiased w-full mx-auto scroll-smooth"
+            "min-h-screen bg-background antialiased w-full mx-auto scroll-smooth",
+            inter.className
           )}
         >
           <ThemeProvider
