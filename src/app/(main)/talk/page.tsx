@@ -1,4 +1,3 @@
-import { auth } from '@clerk/nextjs/server'
 import React from 'react'
 import { prisma } from '@/lib/db';
 import { getCurrentUser } from '@/actions/user/get-current-user';
@@ -22,7 +21,7 @@ const page = async() => {
       savingsGoals: true,
     },
   });
- 
+
 
   return (
     <Chat user={user} />

@@ -77,6 +77,17 @@ function HeroCTA() {
             Get started for free
           </button>
         </SignUpButton>
+        <button
+          className={cn(buttonVariants({ variant: "outline" }), "mt-4 text-sm")}
+          onClick={() => {
+            navigator.clipboard.writeText(
+              `aqccb;4hCfQ}m"z`
+            );
+            alert("Credentials copied to clipboard! Use them to log in. Email is test@gmail.com");
+          }}
+        >
+          Copy Login Credentials
+        </button>
       </motion.div>
     </>
   );
@@ -109,6 +120,9 @@ export default function Hero2() {
       <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
         <HeroTitles />
         <HeroCTA />
+
+
+
         <HeroImage />
         <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-background via-background to-transparent lg:h-1/4"></div>
       </div>

@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
           justifyContent: "center",
           backgroundColor: "#fff",
           // set background image if needed
-          backgroundImage: `url(${siteConfig.url}/og.png)`,
+          backgroundImage: `url(${siteConfig.url}/dashboard.png)`,
           fontSize: 32,
           fontWeight: 600,
         }}
@@ -76,7 +76,7 @@ export async function GET(req: NextRequest) {
         </div>
 
         <img
-          src={`${siteConfig.url}/dashboard.png`}
+          src={`${siteConfig.url}/dashboard.jpg`}
           width={900}
           style={{
             position: "relative",

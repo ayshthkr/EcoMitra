@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useEffect } from "react";
+import Markdown from 'react-markdown';
 
 function systemPrompt(user:any) {
-  return "your finacial advisor,  give me a summary of the user and their financial situation, and then ask them how you can help them today and provide help by looking at portfolio and give proper advise according . \n\n" +
+  return "your finacial advisor,  give me a summary of the user and their financial situation, and then ask them how you can help them today and provide help by looking at portfolio and give proper advise according. This product is built for indian markets so don't refer to foreign markets, refer only to Indian Markets. \n\n" +
     "user: " + JSON.stringify(user) + "\n"
     +"username "+ user?.name + "\n" ;
-
 }
 
 
@@ -19,9 +19,9 @@ const replyFromAi = async (user:any ,message: string) => {
 
     let prompt = `${message} `;
 
- 
+
       prompt += ` ${systemPrompt(user)}`;
-    
+
 
     const result = await model.generateContent(prompt);
     return result.response.text();
@@ -66,7 +66,7 @@ useEffect(() => {
     <div className="w-full h-full mx-auto p-4 border rounded-lg shadow-lg h-[600px] flex flex-col bg-white">
     {/* Header */}
     <h1 className="text-xl text-left font-bold mb-4  border-b pb-2">Chat with AI</h1>
-  
+
     {/* Chat Messages (Scrollable Area) */}
     <div className="flex-1 overflow-y-auto p-4 space-y-2 border rounded bg-gray-100">
       {messages.map((msg, index) => (
@@ -78,11 +78,11 @@ useEffect(() => {
               : "bg-gray-300 text-black self-start mr-auto"
           }`}
         >
-          {msg.content}
+          <Markdown>{msg.content}</Markdown>
         </div>
       ))}
     </div>
-  
+
     {/* Input Box (Sticks to Bottom) */}
     <div className="border-t p-3 bg-white flex items-center">
       <input
@@ -101,7 +101,7 @@ useEffect(() => {
       </button>
     </div>
   </div>
-  
+
   );
 };
 

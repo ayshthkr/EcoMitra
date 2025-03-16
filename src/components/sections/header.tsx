@@ -8,9 +8,18 @@ import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { UserButton, useAuth, SignInButton, SignUpButton, ClerkLoading } from "@clerk/nextjs";
+import {
+  UserButton,
+  useAuth,
+  SignInButton,
+  SignUpButton,
+  ClerkLoading,
+} from "@clerk/nextjs";
 import { createNewUser } from "@/actions/user/create-new-user";
 import { CircleIcon, LoaderIcon } from "lucide-react";
+import Image from "next/image";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Header() {
   const [addBorder, setAddBorder] = useState(false);
@@ -41,6 +50,9 @@ export default function Header() {
     }
   }, [isSignedIn, isLoaded]);
 
+  const testEmail = "test@gmail.com";
+  const testPassword = `aqccb;4hCfQ}m"z`;
+
   return (
     <header className="sticky top-0 z-50 py-2 bg-background/60 backdrop-blur">
       <div className="flex justify-between items-center container">
@@ -49,7 +61,7 @@ export default function Header() {
           title={siteConfig.name}
           className="relative mr-6 flex items-center space-x-2"
         >
-          <Icons.logo className="w-auto h-[40px]" />
+          <Image src={"/logo.png"} height={64} width={64} alt="logo" />
           <span className="font-bold text-xl">{siteConfig.name}</span>
         </Link>
 

@@ -4,12 +4,13 @@ import { cn, constructMetadata } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
-import NextTopLoader from 'nextjs-toploader'
-import {Inter } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
+import { Inter } from "next/font/google";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = constructMetadata({});
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
   colorScheme: "light",
@@ -38,10 +39,12 @@ export default function RootLayout({
             defaultTheme="light"
             enableSystem={false}
           >
-            <NextTopLoader color="#2a9d90" height={6} />
-            
-            {children}
-            <Toaster richColors />
+            <TooltipProvider>
+              <NextTopLoader color="#2a9d90" height={6} />
+
+              {children}
+              <Toaster richColors />
+            </TooltipProvider>
           </ThemeProvider>
         </body>
       </html>
