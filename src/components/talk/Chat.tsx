@@ -63,39 +63,45 @@ useEffect(() => {
   };
 
   return (
-    <div className="w-full mx-auto p-4 border rounded-lg shadow-lg h-full text-black">
-      <h1 className="text-xl font-bold mb-4">Chat with AI</h1>
-      <div className=" overflow-y-auto border p-2 rounded">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`p-2 my-1 rounded ${
-              msg.role === "user"
-                ? "bg-slate-200 text-right"
-                : "bg-gray-200 text-left"
-            }`}
-          >
-            {msg.content}
-          </div>
-        ))}
-      </div>
-      <div className="flex mt-4">
-        <input
-          type="text"
-          className="flex-1 border p-2 rounded"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type a message..."
-        />
-        <button
-          onClick={sendMessage}
-          disabled={loading}
-          className="ml-2 bg-black text-white px-4 py-2 rounded"
+    <div className="w-full h-full mx-auto p-4 border rounded-lg shadow-lg h-[600px] flex flex-col bg-white">
+    {/* Header */}
+    <h1 className="text-xl text-left font-bold mb-4  border-b pb-2">Chat with AI</h1>
+  
+    {/* Chat Messages (Scrollable Area) */}
+    <div className="flex-1 overflow-y-auto p-4 space-y-2 border rounded bg-gray-100">
+      {messages.map((msg, index) => (
+        <div
+          key={index}
+          className={`p-3 rounded-lg max-w-[75%] ${
+            msg.role === "user"
+              ? "bg-slate-200 text-white self-end ml-auto"
+              : "bg-gray-300 text-black self-start mr-auto"
+          }`}
         >
-          {loading ? "..." : "Send"}
-        </button>
-      </div>
+          {msg.content}
+        </div>
+      ))}
     </div>
+  
+    {/* Input Box (Sticks to Bottom) */}
+    <div className="border-t p-3 bg-white flex items-center">
+      <input
+        type="text"
+        className="flex-1 border p-2 rounded-lg text-black outline-none"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Type a message..."
+      />
+      <button
+        onClick={sendMessage}
+        disabled={loading}
+        className="ml-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition"
+      >
+        {loading ? "..." : "Send"}
+      </button>
+    </div>
+  </div>
+  
   );
 };
 
